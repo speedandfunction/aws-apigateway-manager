@@ -1,6 +1,6 @@
 {
   "name": "aws-apigatrway-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "???",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "sinon-chai": "^3.1.0"
   },
   "bin": {
-    "aws-apigateway-manager" : "./bin/aws-apigatwway-manager"
+    "aws-apigateway-manager": "./bin/aws-apigatwway-manager"
   },
   "engines": {
     "node": "8.x.x",
