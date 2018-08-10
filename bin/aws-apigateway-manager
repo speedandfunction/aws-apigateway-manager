@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+const {ArgumentParser} = require('argparse');
+const {version} = require('../package');
+const {run} = require('../lib/index');
+
+const parser = new ArgumentParser({
+  version,
+  addHelp: true,
+  description: 'AWS API Gateway manager',
+});
+parser.addArgument(['-r', '--region'], {
+  help: 'region to deploy (ex: us-east-1)',
+  required: true,
+  type: String,
+});
+parser.addArgument(['-s', '--stage'], {
+  help: 'stage to deploy (ex: dev, prod)',
+  required: true,
+  type: String,
+});
+parser.addArgument(['--accessKeyId'], {
+  required: false,
+  type: String,
+});
+parser.addArgument(['--secretAccessKey'], {
+  required: false,
+  type: String,
+});
+
+const args = parser.parseArgs();
+
+run(args).catch((err) => {
+  console.log(err.stack);
+  process.exit(1);
+});
